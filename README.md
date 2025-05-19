@@ -1,5 +1,4 @@
-## Public Documents
----
+### Notes
 * testing.md
   * How I generally approach testing TDD and BDD
 * dev-ops.md
