@@ -4,18 +4,18 @@ Integrating vulnerability management into the build workflow, staging, and produ
 
 #### Pre-commit hooks
 
-Run on every developer machine and allows scripts to run that identify problems before a commit (eg. regex that matches a string that looks like a secret\!)
+Run on every developer machine and allows scripts to run that identify problems before a commit (eg. regex that matches a string that looks like a secret!)
 
 #### Build workflows perform
 
 SAST the analysis of source and compiled code. DAST is analysis of vulnerabilities in an application while it is being executed. SCA where open-source dependencies are queried against vulnerability databases. Container image security scans analyse the container image using CVE and NST databases to identify vulnerabilities.   
 Tooling includes: SonarQube, Snyk, Checkmarx, Black Duck, JFrog
 
-#### SEIM
+#### SIEM - Security Information and Event Management
 
-In production, SEIM, the real time analysis of application logs to identify attacks and trigger alerts. Tooling includes: DataDog, Splunk, Elastic Security \- all of which ingest log events generally.  There are plenty of other tools.  
+In production, SIEM, the real time analysis of application logs to identify attacks and trigger alerts. Tooling includes: DataDog, Splunk, Elastic Security - all of which ingest log events generally.  There are plenty of other tools.  
 
-#### RASP
+#### RASP - Runtime Application Self-Protection
 
 Looks very promising as it operates by monitoring the runtime application and prevents malicious code from executing.  Some features suggest even zero-day attacks can be protected against. 
 
