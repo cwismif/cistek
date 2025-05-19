@@ -1,12 +1,5 @@
-# cistek
+## Public Documents
 ---
-
-### CV
-* christopher-smith-cv.pdf
-* christopher-smith-cv.docx
-
-### Notes  
-
 * testing.md
   * How I generally approach testing TDD and BDD
 * dev-ops.md
