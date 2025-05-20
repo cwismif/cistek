@@ -86,3 +86,6 @@ _____________________________________
 4. Needless Complexity.
 5. Needless Repetition.
 6. Opacity. The code is hard to understand.
+
+
+Source: "https://gist.githubusercontent.com/wojteklu/73c6914cc446146b8b533c0988cf8d29/raw/c7a44d774fc3b09a0d5f0f58888550ba0ac694b9/clean_code.md"
