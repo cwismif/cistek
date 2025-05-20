@@ -27,6 +27,11 @@ Write a small, simple test for the functionality required, watch it fail, write 
 
 Please see ./dev-ops.md for how I would integrate tests into builds and CI workflows.
 
+##### Good Unit tests
+* Are consise and clearly structures (given, when, then)
+* Contains a single assert
+* Are independendent of one another
+
 #### Integration tests - TODO
 #### Contract tests - TODO
 #### E2E tests in staging - TODO
