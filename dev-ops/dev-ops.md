@@ -2,8 +2,10 @@
 ---
 Having been the de facto DevOps engineer in several app development teams,  learning that DevOps should prioritise keeping the velocity of work high (fast feedback, quick build workflows), automation (repetitive, error prone tasks need automation), observability (logs and metrics)  and consistency (code style, runtime environments). 
 
+
+
 #### Standardised development environments
-Tools such as DevBox can quickly create a reproducible and fully equipped development environment, that can be shared and used to onboard quickly  
+Tools such as DevBox can quickly create a reproducible and fully equipped development environment, that can be shared and used to onboard quickly. Also allows 
     
 #### Fast feedback
 Developer productivity depends on the fast feedback of their changes. Linters and compilers can highlight errors almost immediately (syntax, NPE potential etc..) plus they can enforce custom code style. Many other bugs are caught quickly if unit test coverage is good, the further along the build pipeline you go, the slower the feedback but generally speaking, if your local machine is powerful enough.  Building locally gives faster feedback  

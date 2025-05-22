@@ -1,30 +1,46 @@
 ## DevSecOps
 ---
-Integrating vulnerability management into the build workflow, staging, and production. 
+Integrating security management into the build workflow, staging, and production. 
+
+
+#### Software implementation - 
+This might be more security related than DevSecOps which is integrating security checks into DevOps workflows
+APIs should be closely scrutinised. Validate all input and avoid whitelisting of endpoint paths until required.
+Request interceptors can be used to perform some tasks. These could be packaged into a library for reuse and 
+checked as a dependency by a pre-commit script.
 
 #### Pre-commit hooks
+Best to set these globally if you have lots of repos.
+Multi stage build containers allow enforces consistent security processes.  Having a docker container in multiple stages  
+Run on every developer's machine and allows scripts to run that identify problems before a commit (eg. regex that matches a string that looks like a secret!)  
+In the Java ecosystem there is a tool called Spot Bugs with an Extension that also looks for security related bugs.
+In the IaC ecosystem, source analysis such as tfsec can quickly feedback on potential infrastructure vulnerabilites.
 
-Run on every developer machine and allows scripts to run that identify problems before a commit (eg. regex that matches a string that looks like a secret!)
 
+#### Local CI
+* Multi stage build containers allow containers to serve a specific part of the DevSecOps workflow, each with the minimal tooling that enables the container to serve the specific function of the security scan.  
+* Faster feedback - many scans could be done before code is committed (pre-commit hooks) or pushed (pre-push hooks that execute after merging main).  
+  This merge may introduce vulnerabilities that neither commits possessed alone. 
+* The output of the local multi stage containerised CI workflow is an image that contains minimal only what it requires to function. This reduces the attack surface.
+* Containers allow the runtime environment to be identical whether locally or in production (excluding configuration).  It is easier to reproduce vulnerabilities
+  that caused checks to fail in remote CI.  Inversely, local CI catches vulnerabilites early, and feedback faster.  They also allow for easier investigation.
+* SAST, DAST, SCA, container security scanning can all be accomplished with just the 
 #### Build workflows perform
-
-SAST the analysis of source and compiled code. DAST is analysis of vulnerabilities in an application while it is being executed. SCA where open-source dependencies are queried against vulnerability databases. Container image security scans analyse the container image using CVE and NST databases to identify vulnerabilities.   
+Whether local or remote SAST analysis of source and compiled code needs to be passed. 
+DAST is the analysis of vulnerabilities in an application while it is being executed. 
+SCA where open-source dependencies are queried against vulnerability databases. Container image security scans analyse the container image using CVE and NST databases to identify vulnerabilities.   
 Tooling includes: SonarQube, Snyk, Checkmarx, Black Duck, JFrog
 
 #### SIEM - Security Information and Event Management
-
 In production, SIEM, the real time analysis of application logs to identify attacks and trigger alerts. Tooling includes: DataDog, Splunk, Elastic Security - all of which ingest log events generally.  There are plenty of other tools.  
 
 #### RASP - Runtime Application Self-Protection
-
 Looks very promising as it operates by monitoring the runtime application and prevents malicious code from executing.  Some features suggest even zero-day attacks can be protected against. 
 
 #### Patch management
-
 Part of vulnerability management and continuously addresses recently discovered vulnerabilities and applies patches to fix these vulnerabilities, which can be manually applied or an automated apply that goes through the build workflow.
 
 #### Infrastructure
-
 Since the web application is only a part of the attack surface, DevSecOps need to be involved in securing the infrastructure in their domain. 
 
 * Networks can be secured by using subnets and controlling the traffic flowing between them.  Private subnets can host the most sensitive resources, with network ACLs giving fine-grained control of permitted traffic.    
