@@ -16,7 +16,6 @@ Run on every developer's machine and allows scripts to run that identify problem
 In the Java ecosystem there is a tool called Spot Bugs with an Extension that also looks for security related bugs.
 In the IaC ecosystem, source analysis such as tfsec can quickly feedback on potential infrastructure vulnerabilites.
 
-
 #### Local CI
 * Multi stage build containers allow containers to serve a specific part of the DevSecOps workflow, each with the minimal tooling that enables the container to serve the specific function of the security scan.  
 * Faster feedback - many scans could be done before code is committed (pre-commit hooks) or pushed (pre-push hooks that execute after merging main).  
@@ -24,7 +23,12 @@ In the IaC ecosystem, source analysis such as tfsec can quickly feedback on pote
 * The output of the local multi stage containerised CI workflow is an image that contains minimal only what it requires to function. This reduces the attack surface.
 * Containers allow the runtime environment to be identical whether locally or in production (excluding configuration).  It is easier to reproduce vulnerabilities
   that caused checks to fail in remote CI.  Inversely, local CI catches vulnerabilites early, and feedback faster.  They also allow for easier investigation.
-* SAST, DAST, SCA, container security scanning can all be accomplished with just the 
+* SAST (scans source and compiled code), DAST (scans the application while executing), SCA (Critical, checks NVD for dependency vulnerabilities), container security scanning can all be accomplished with just the packaged jar.
+* Containerised building also limits the scope of exploits that can emerge from malicious dependencies.
+
+#### Build tooling
+Whether maven or gradle, dependencies downloaded from the internet can be verified for tampering using checksums
+Dependabot!!
 #### Build workflows perform
 Whether local or remote SAST analysis of source and compiled code needs to be passed. 
 DAST is the analysis of vulnerabilities in an application while it is being executed. 
@@ -36,6 +40,16 @@ In production, SIEM, the real time analysis of application logs to identify atta
 
 #### RASP - Runtime Application Self-Protection
 Looks very promising as it operates by monitoring the runtime application and prevents malicious code from executing.  Some features suggest even zero-day attacks can be protected against. 
+
+#### Personalaly identifiable information checks
+
+#### Mutation testing
+
+#### Secret management
+Secrets are introduced through and external mechanism to repositores and would follow  
+
+#### Access control
+Now a bigger concern than ever.
 
 #### Patch management
 Part of vulnerability management and continuously addresses recently discovered vulnerabilities and applies patches to fix these vulnerabilities, which can be manually applied or an automated apply that goes through the build workflow.
